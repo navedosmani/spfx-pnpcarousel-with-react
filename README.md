@@ -19,9 +19,13 @@ Short summary on functionality and used technologies.
 
 ## Screenshots
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/44241854/129493354-2b9337cc-0b1d-484f-8f42-d5a78b067489.gif)
+
 ![Screen Shot 2021-08-15 at 11 26 41 AM](https://user-images.githubusercontent.com/44241854/129483735-20dd1d99-ada3-4e6d-8507-30511ad448b7.png)
 
-![Screen Shot 2021-08-15 at 11 26 52 AM](https://user-images.githubusercontent.com/44241854/129483742-9e195c79-998d-419a-8044-78b2347f2cf8.png)
+![Screen Shot 2021-08-15 at 5 45 18 PM](https://user-images.githubusercontent.com/44241854/129493737-5ec9306e-928f-4b18-a308-9095e2e0a8e3.png)
+
+![Screen Shot 2021-08-15 at 5 45 37 PM](https://user-images.githubusercontent.com/44241854/129493748-215c28a0-0777-4a6d-8074-4ea1c0038930.png)
 
 ## Disclaimer
 
