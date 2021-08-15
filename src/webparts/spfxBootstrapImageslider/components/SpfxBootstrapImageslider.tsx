@@ -66,12 +66,12 @@ export default class SpfxBootstrapImageslider extends React.Component<
     }
   };
 
-  componentDidMount() {
+  public componentDidMount() {
     this.getImagesFromLibrary(this.props.pictureLibraryDropDown);
     //this.getImagesFromLibrary("SliderImages");
   }
 
-  componentDidUpdate(
+  public componentDidUpdate(
     prevProps: ISpfxBootstrapImagesliderProps,
     prevState: ISpfxBootstrapImagesliderState
   ): void {
