@@ -10,11 +10,7 @@ import { ImageFit } from "@fluentui/react";
 import { escape } from "@microsoft/sp-lodash-subset";
 import { sp } from "@pnp/sp/presets/all";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Carousel,
-  CarouselButtonsLocation,
-  CarouselButtonsDisplay
-} from "@pnp/spfx-controls-react/lib/Carousel";
+import Carousel from "react-bootstrap/Carousel";
 
 export default class SpfxBootstrapImageslider extends React.Component<
   ISpfxBootstrapImagesliderProps,
@@ -29,7 +25,8 @@ export default class SpfxBootstrapImageslider extends React.Component<
     this.state = {
       images: [],
       statusMessage: "",
-      selectedLibray: ""
+      selectedLibray: "",
+      index: 0
     };
   }
 
@@ -42,28 +39,21 @@ export default class SpfxBootstrapImageslider extends React.Component<
           "Title, FileRef, EncodedAbsUrl, OData__ExtendedDescription"
         )
         .get();
-      //console.log(images);
+      console.log(images);
       //this.setState({ images: images });
-      let carouselElements: any[] = [];
       if (images.length > 0) {
-        images.map((image) => {
-          carouselElements.push({
-            imageSrc: image.EncodedAbsUrl,
-            title: image.Title,
-            description: image.OData__ExtendedDescription,
-            url: "https://en.wikipedia.org/wiki/Colosseum",
-            showDetailsOnHover: true,
-            imageFit: ImageFit.cover
-          });
-        });
         //console.log(carouselElements);
-        this.setState({ images: carouselElements });
+        this.setState({ images: images });
       }
     } else {
       this.setState({
         statusMessage: "Please select Image library to load Image Slider"
       });
     }
+  };
+
+  public handleSelect = (selectedIndex, e) => {
+    this.setState({ index: selectedIndex });
   };
 
   componentDidMount() {
@@ -86,20 +76,40 @@ export default class SpfxBootstrapImageslider extends React.Component<
   public render(): React.ReactElement<ISpfxBootstrapImagesliderProps> {
     return (
       <React.Fragment>
-        {this.state.images.length > 0 ? (
-          <div className={styles.spfxBootstrapImageslider}>
+        <div className={styles.spfxBootstrapImageslider}>
+          {this.state.images.length > 0 ? (
             <Carousel
-              contentContainerStyles={styles.carouselContent}
-              containerButtonsStyles={styles.carouselButtonsContainer}
-              buttonsLocation={CarouselButtonsLocation.top}
-              buttonsDisplay={CarouselButtonsDisplay.block}
-              isInfinite={true}
-              element={this.state.images}
-            />
-          </div>
-        ) : (
-          <p>No Images found in the selected library</p>
-        )}
+              fade
+              variant="dark"
+              activeIndex={this.state.index}
+              interval={2000}
+              onSelect={this.handleSelect}
+            >
+              {this.state.images.map((image) => {
+                return (
+                  <Carousel.Item
+                    className={styles.reactBootstrapCarouselContent}
+                  >
+                    <img
+                      className="d-block w-100"
+                      src={image.EncodedAbsUrl}
+                      alt={image.Title}
+                    />
+                    <Carousel.Caption>
+                      <h3>{image.Title}</h3>
+                      <p>{image.OData__ExtendedDescription}</p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                );
+              })}
+            </Carousel>
+          ) : (
+            <p>
+              No images avaiable in the selected library. Please select another
+              library.
+            </p>
+          )}
+        </div>
       </React.Fragment>
     );
   }
