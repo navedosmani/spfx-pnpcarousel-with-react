@@ -20,7 +20,7 @@
       "group": { "default": "Other" },
       "title": { "default": "spfx-bootstrap-imageslider" },
       "description": { "default": "spfx-bootstrap-imageslider" },
-      "officeFabricIconFontName": "Page",
+      "officeFabricIconFontName": "Slideshow",
       "properties": {
         "description": "spfx-bootstrap-imageslider",
         "pictureLibraryDropDown": ""
