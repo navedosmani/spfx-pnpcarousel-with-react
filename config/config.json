@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-bootstrap-imageslider-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxBootstrapImageslider/SpfxBootstrapImagesliderWebPart.js",
+          "manifest": "./src/webparts/spfxBootstrapImageslider/SpfxBootstrapImagesliderWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxBootstrapImagesliderWebPartStrings": "lib/webparts/spfxBootstrapImageslider/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
